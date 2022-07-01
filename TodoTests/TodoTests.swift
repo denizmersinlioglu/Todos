@@ -18,7 +18,7 @@ class TodoTests: XCTestCase {
         
         let store = TestStore(
             initialState: TodoListState(),
-            reducer: appReducer,
+            reducer: todoListReducer,
             environment: TodoListEnvironment(
                 uuid: { id },
                 mainQueue: scheduler.eraseToAnyScheduler()
@@ -41,7 +41,7 @@ class TodoTests: XCTestCase {
                     Todo(id: secondId, description: "Eggs", completed: false),
                 ]
             ),
-            reducer: appReducer,
+            reducer: todoListReducer,
             environment: TodoListEnvironment(
                 uuid: { fatalError("not implemented") },
                 mainQueue: scheduler.eraseToAnyScheduler()
@@ -71,7 +71,7 @@ class TodoTests: XCTestCase {
                     Todo(id: secondId, description: "Eggs", completed: false),
                 ]
             ),
-            reducer: appReducer,
+            reducer: todoListReducer,
             environment: TodoListEnvironment(
                 uuid: { fatalError("not implemented") },
                 mainQueue: scheduler.eraseToAnyScheduler()
